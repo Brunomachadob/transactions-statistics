@@ -2,7 +2,6 @@ package com.n26.transactions;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -43,7 +42,6 @@ public class TransactionsControllerTest {
         Mockito.doNothing().when(spy).clearStatistics();
 
         this.mockMvc.perform(delete("/transactions"))
-            .andDo(print())
             .andExpect(status().isNoContent());
     }
 
@@ -63,7 +61,6 @@ public class TransactionsControllerTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(request))
         )
-            .andDo(print())
             .andExpect(status().isCreated());
     }
 }
