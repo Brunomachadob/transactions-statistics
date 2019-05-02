@@ -42,7 +42,7 @@ public class Statistics {
             this.timestamp.isBefore(other.getTimestamp()) ? other.getTimestamp() : this.timestamp
         );
 
-        newStatistics.setSum(this.getSum().add(other.getSum()));
+        newStatistics.setSum(this.sum.add(other.getSum()));
 
         newStatistics.setMin(this.min == null ? other.getMin() : this.min.min(other.getMin()));
         newStatistics.setMax(this.max == null ? other.getMax() : this.max.max(other.getMax()));
@@ -50,6 +50,10 @@ public class Statistics {
         return newStatistics;
     }
 
+    /*
+     * Maybe this is not the best approach but it helped me having a single point
+     * of calculation, in the `combine`.
+     */
     public Statistics addTransaction(Transaction transaction) {
         Statistics newStatistics = new Statistics();
 
