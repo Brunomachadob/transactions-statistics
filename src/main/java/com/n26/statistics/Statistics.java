@@ -2,6 +2,7 @@ package com.n26.statistics;
 
 import com.n26.transactions.Transaction;
 import lombok.Data;
+import org.apache.tomcat.jni.Local;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -31,6 +32,10 @@ public class Statistics {
 
     public BigDecimal getMin() {
         return min == null ? BigDecimal.ZERO : min;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return this.timestamp;
     }
 
     public Statistics combine(Statistics other) {
