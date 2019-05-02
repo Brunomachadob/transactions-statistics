@@ -108,8 +108,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.0</version>
-            <scope>compile</scope>
+            <version>1.18.6</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
